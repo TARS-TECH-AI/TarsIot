@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate ,Link} from 'react-router-dom';
 import Icon from './Icon';
+
 
 const NAV_LINKS = [
   { name: 'Home', to: '/' },
@@ -8,7 +9,7 @@ const NAV_LINKS = [
   { name: 'Services', to: '/services' },
   { name: 'Products', to: '/products' },
   { name: 'Clients', to: '/clients' },
-  { name: 'Contact', to: '/contact' },
+  // { name: 'Contact', to: '/contact' },
 ];
 
 export default function Navbar() {
@@ -81,7 +82,7 @@ export default function Navbar() {
                 to={nav.to}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `nav-link-item px-3 lg:px-4 py-2 text-sm lg:text-base tracking-wider uppercase transition-colors duration-200 focus:outline-none ${
+                  `nav-link-item px-3 lg:px-4 py-2 text-sm lg:text-base  uppercase transition-colors duration-200 focus:outline-none ${
                     isActive ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
                   }`
                 }
@@ -90,12 +91,12 @@ export default function Navbar() {
                 {nav.name}
               </NavLink>
             ))}
-            <button
+            <Link to="/contact"
               className="btn-primary ml-4 px-5 py-2 rounded-lg tracking-wider"
               style={{ fontSize: '0.72rem' }}
             >
               Get Demo
-            </button>
+            </Link>
           </div>
 
           {/* ── Hamburger Button ──────────────────────── */}
@@ -105,6 +106,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             {/* Line 1 */}
             <span
@@ -135,6 +137,7 @@ export default function Navbar() {
       {/* ── Mobile Dropdown Menu ──────────────────────── */}
       {menuOpen && (
         <div
+          id="mobile-menu"
           className="md:hidden mobile-menu-enter"
           style={{
             borderTop: '1px solid rgba(34,211,238,0.15)',
@@ -161,12 +164,13 @@ export default function Navbar() {
                 {nav.name}
               </NavLink>
             ))}
-            <button
-              className="btn-primary mt-3 px-5 py-3 rounded-lg tracking-wider w-full"
+            <Link to="/contact"
+              onClick={closeMenu}
+              className="btn-primary mt-3 px-5 py-3 rounded-lg tracking-wider w-full text-center"
               style={{ fontSize: '0.72rem' }}
             >
               Get Demo
-            </button>
+            </Link>
           </div>
         </div>
       )}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from './Icon';
+import { Link } from 'react-router-dom';
 
 const NAV_LINKS   = ['Home', 'About Us', 'Services', 'Products', 'Clients', 'Contact'];
 const SOLUTIONS   = ['IoT Connectivity', 'Analytics & Insights', 'IoT Security Suite', 'Cloud Integration', 'Edge AI & Computing', 'Device Lifecycle Mgmt'];
@@ -100,7 +101,9 @@ export default function Footer({ setPage }) {
             >
               Services
             </h4>
+            <Link to="/services" >
             <ul className="space-y-2.5">
+            
               {SOLUTIONS.map((s) => (
                 <li
                   key={s}
@@ -112,6 +115,7 @@ export default function Footer({ setPage }) {
                 </li>
               ))}
             </ul>
+            </Link>
           </div>
 
           {/* Contact */}

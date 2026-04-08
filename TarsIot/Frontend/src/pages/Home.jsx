@@ -36,7 +36,7 @@ export default function Home({ setPage }) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* Left: text */}
-            <div>
+            <div className="text-center lg:text-left">
               <div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs tracking-widest uppercase"
                 style={{
@@ -68,26 +68,20 @@ export default function Home({ setPage }) {
                 infrastructure to intelligent cloud systems — in real time.
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex justify-center lg:justify-start flex-wrap gap-4">
                 <button
-                  className="btn-primary px-8 py-3.5 rounded-xl flex items-center gap-2 text-sm tracking-wider"
+                  className="btn-primary px-8 py-3.5 rounded-xl flex items-center gap-2 text-sm tracking-wider mx-auto lg:mx-0"
                   onClick={() => setPage('Services')}
                 >
                   Explore Solutions
                   <Icon name="arrow" className="w-4 h-4" />
-                </button>
-                <button
-                  className="btn-outline px-8 py-3.5 rounded-xl text-sm tracking-wider"
-                  onClick={() => setPage('Contact')}
-                >
-                  Contact Us
                 </button>
               </div>
             </div>
 
             {/* Right: animated orbit graphic */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-72 h-72 sm:w-96 sm:h-96">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                 {/* Rings */}
                 <div
                   className="absolute inset-0 rounded-full border opacity-20 animate-ping"
@@ -136,7 +130,7 @@ export default function Home({ setPage }) {
           </div>
 
           {/* ── Stats row ─────────────────────────────────── */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
             {STATS.map(({ val, label }) => (
               <div key={label} className="stat-card border-glow p-5 rounded-xl text-center card-hover">
                 <div
@@ -169,7 +163,7 @@ export default function Home({ setPage }) {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map(({ icon, title, desc }) => (
               <div
                 key={title}

@@ -45,12 +45,12 @@ export default function Navbar() {
         boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.4)' : 'none',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
 
           {/* ── Logo ─────────────────────────────────── */}
           <button
-            className="flex items-center gap-3 focus:outline-none"
+            className="flex items-center gap-2 sm:gap-3 focus:outline-none flex-shrink-0"
             onClick={() => {
               closeMenu();
               navigate('/');
@@ -58,16 +58,16 @@ export default function Navbar() {
             aria-label="Go to Home"
           >
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+              className="w-7 sm:w-9 h-7 sm:h-9 rounded-lg flex items-center justify-center flex-shrink-0"
               style={{
                 background: 'linear-gradient(135deg, #22d3ee, #2dd4bf)',
                 boxShadow: '0 0 15px rgba(34,211,238,0.4)',
               }}
             >
-              <Icon name="cpu" className="w-5 h-5 text-navy-900" style={{ color: '#0a0f1e' }} />
+              <Icon name="cpu" className="w-4 sm:w-5 h-4 sm:h-5 text-navy-900" style={{ color: '#0a0f1e' }} />
             </div>
             <span
-              className="font-orbitron font-bold text-xl tracking-widest"
+              className="font-orbitron font-bold text-sm sm:text-xl tracking-widest"
               style={{ color: '#22d3ee', textShadow: '0 0 15px rgba(34,211,238,0.4)' }}
             >
               TARS<span className="text-white">IoT</span>
@@ -75,14 +75,14 @@ export default function Navbar() {
           </button>
 
           {/* ── Desktop Links ─────────────────────────── */}
-          <div className="hidden md:flex items-center gap-1 lg:gap-2">
+          <div className="hidden md:flex items-center gap-0.5 lg:gap-2">
             {NAV_LINKS.map((nav) => (
               <NavLink
                 key={nav.name}
                 to={nav.to}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `nav-link-item px-3 lg:px-4 py-2 text-sm lg:text-base  uppercase transition-colors duration-200 focus:outline-none ${
+                  `nav-link-item px-2 lg:px-4 py-2 text-xs lg:text-base uppercase transition-colors duration-200 focus:outline-none ${
                     isActive ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
                   }`
                 }
@@ -92,8 +92,7 @@ export default function Navbar() {
               </NavLink>
             ))}
             <Link to="/contact"
-              className="btn-primary ml-4 px-5 py-2 rounded-lg tracking-wider"
-              style={{ fontSize: '0.72rem' }}
+              className="btn-primary ml-2 lg:ml-4 px-3 lg:px-5 py-2 rounded-lg tracking-wider text-xs lg:text-sm"
             >
               Get Demo
             </Link>
@@ -144,15 +143,15 @@ export default function Navbar() {
             background: 'rgba(10,15,30,0.98)',
           }}
         >
-          <div className="px-4 py-4 flex flex-col gap-1">
+          <div className="px-3 py-3 flex flex-col gap-1">
             {NAV_LINKS.map((nav) => (
               <NavLink
                 key={nav.name}
                 to={nav.to}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `w-full text-left px-4 py-3 rounded-lg font-semibold text-base uppercase tracking-wider transition-all duration-200 focus:outline-none ${
-                    isActive ? 'text-cyan-400 border-l-2 border-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+                  `w-full text-left px-3 py-2.5 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-200 focus:outline-none ${
+                    isActive ? 'text-cyan-400 border-l-2 border-cyan-400 bg-cyan-400/5' : 'text-slate-300 hover:text-cyan-300 hover:bg-cyan-400/5'
                   }`
                 }
                 style={{
@@ -166,8 +165,7 @@ export default function Navbar() {
             ))}
             <Link to="/contact"
               onClick={closeMenu}
-              className="btn-primary mt-3 px-5 py-3 rounded-lg tracking-wider w-full text-center"
-              style={{ fontSize: '0.72rem' }}
+              className="btn-primary mt-2 px-4 py-2.5 rounded-lg tracking-wider w-full text-center text-sm"
             >
               Get Demo
             </Link>
